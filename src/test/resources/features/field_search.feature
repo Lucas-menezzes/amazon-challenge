@@ -18,7 +18,7 @@ Feature: Sugestoes de Pesquisa (Autocomplete)
 
   Examples:
     | term         |
-    | a1b2cdww     |
-    | ########     |
+    | a1b2cdww#    |
+    | ########1    |
 
   

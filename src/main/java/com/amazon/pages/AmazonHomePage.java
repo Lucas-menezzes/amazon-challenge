@@ -49,20 +49,22 @@ public class AmazonHomePage {
     }
 
     public void submitSearch() {    
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement firstProductElement = wait.until(ExpectedConditions.elementToBeClickable(firstProduct));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    
+        int tentativas = 0;
+        while (tentativas < 3) {
+            try {
+                WebElement firstProductElement = wait.until(ExpectedConditions.elementToBeClickable(firstProduct));
 
-            System.out.println(" ACHEI LOCAL!");
-            firstProductElement.click();
-
-        } catch (StaleElementReferenceException e) {
-            System.out.println("⚠️ Elemento ficou 'stale', tentando novamente...");
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement firstProductElement = wait.until(ExpectedConditions.presenceOfElementLocated(firstProduct));
-            firstProductElement.click();
-        } catch (NoSuchElementException e) {
-            System.out.println("❌ O elemento não foi encontrado: " + e.getMessage());
+                firstProductElement.click();
+                break;
+            } catch (StaleElementReferenceException e) {
+                System.out.println("Elemento ficou 'stale', tentando novamente... Tentativa " + (tentativas + 1));
+            } catch (NoSuchElementException e) {
+                System.out.println("O elemento não foi encontrado: " + e.getMessage());
+                break;
+            }
+            tentativas++;
         }
     }
 

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.NoSuchElementException;
 import java.time.Duration;
 
 
@@ -12,8 +13,8 @@ public class CartPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By cartItem = By.cssSelector(".sc-list-item-content");
-    private By cartItemPrice = By.cssSelector(".sc-price");
+    private By cartItem = By.id("activeCartViewForm");
+    private By cartItemPrice = By.xpath("//span[@id='sc-subtotal-amount-buybox']/span");
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -22,21 +23,41 @@ public class CartPage {
 
     public boolean isProductInCart(String expectedPrice) {
         try {
-            // Aguarda até que o item esteja visível no carrinho
             wait.until(ExpectedConditions.visibilityOfElementLocated(cartItem));
 
-            // Captura o preço do produto dentro do carrinho
             WebElement priceElement = wait.until(ExpectedConditions.visibilityOfElementLocated(cartItemPrice));
-            String cartPrice = priceElement.getText().trim(); 
+            String cartPrice = normalizePrice(priceElement.getText().trim());
 
-            System.out.println("Preço capturado no carrinho: " + cartPrice);
-            System.out.println("Preço esperado: " + expectedPrice);
+            String formattedCartPrice = normalizePrice(cartPrice);
+            String formattedExpectedPrice = normalizePrice(expectedPrice);
 
-            // Retorna verdadeiro se os preços forem iguais
-            return cartPrice.equals(expectedPrice);
+            System.out.println("Preço capturado no carrinho: " + formattedCartPrice);
+            System.out.println("Preço esperado: " + formattedExpectedPrice);
+
+            if (formattedCartPrice.equals(formattedExpectedPrice)) {
+                System.out.println("O preço do produto no carrinho está correto!");
+                return true;
+            } else {
+                System.out.println("O preço do produto no carrinho NÃO corresponde ao esperado!");
+                return false;
+            }
+
+        } catch (NoSuchElementException e) {
+            System.out.println("O preço do produto no carrinho não foi encontrado!");
         } catch (Exception e) {
-            System.out.println("Erro ao validar o produto no carrinho: " + e.getMessage());
-            return false;
+            System.out.println("Erro inesperado ao validar o preço no carrinho: " + e.getMessage());
         }
+        return false;
+    }
+
+    private String normalizePrice(String price) {
+        if (price == null || price.isEmpty()) {
+            return "";
+        }
+        price = price.replaceAll("[^0-9,]", "").trim();
+        price = price.replace(",", ".");
+        return price;
     }
 }
+
+

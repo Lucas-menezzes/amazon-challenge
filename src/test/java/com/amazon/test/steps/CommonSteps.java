@@ -18,6 +18,5 @@ public class CommonSteps {
     public void usuario_na_pagina_inicial() {
         amazonHomePage.open();
         assertTrue(amazonHomePage.isPageLoaded(), "A página inicial da Amazon não carregou corretamente!");
-        System.out.println("Página inicial carregada com sucesso!");
     }
 }
