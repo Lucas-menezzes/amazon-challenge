@@ -1,0 +1,42 @@
+# 🛑 Ignorar diretórios de compilação e binários
+target/
+bin/
+out/
+*.class
+
+# 🛑 Ignorar relatórios de teste e logs
+test-output/
+cucumber-reports/
+allure-results/
+extent-reports/
+logs/
+*.log
+*.json
+*.xml
+*.html
+
+# 🛑 Ignorar dependências baixadas pelo Maven
+.mvn/
+**/pom.xml.tag
+**/pom.xml.releaseBackup
+**/dependency-reduced-pom.xml
+**/buildNumber.properties
+**/target/
+**/surefire-reports/
+
+# 🛑 Ignorar configurações locais do IDE (IntelliJ, Eclipse, VSCode)
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.swp
+
+# 🛑 Ignorar arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# 🛑 Ignorar drivers do Selenium (se estiverem no projeto)
+chromedriver.exe
+geckodriver.exe
+msedgedriver.exe
