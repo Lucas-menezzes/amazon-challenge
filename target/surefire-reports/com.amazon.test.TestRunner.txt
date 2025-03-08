@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------
+Test set: com.amazon.test.TestRunner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 24.30 s <<< FAILURE! -- in com.amazon.test.TestRunner
+Adicionar produtos ao carrinho.Adicionar um produto ao carrinho com sucesso -- Time elapsed: 21.01 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: O preço do produto no carrinho não corresponde ao selecionado! ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:211)
+	at com.amazon.test.steps.CartSteps.verifica_produto_no_carrinho(CartSteps.java:54)
+	at ✽.o produto deve aparecer no carrinho corretamente(file:///C:/MavenProjects/amazon-automation/src/test/resources/features/add_to_cart.feature:10)
+

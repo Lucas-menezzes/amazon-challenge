@@ -1,0 +1,6 @@
+com\amazon\pages\AmazonHomePage.class
+com\amazon\base\DriverManager.class
+com\amazon\pages\CartPage.class
+com\amazon\pages\ProductPage.class
+com\amazon\base\ScreenshotUtil.class
+com\amazon\utils\ExtentManager.class

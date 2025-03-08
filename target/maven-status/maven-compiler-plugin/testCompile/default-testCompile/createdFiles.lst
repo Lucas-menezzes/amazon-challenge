@@ -1,0 +1,6 @@
+com\amazon\test\TestRunner.class
+com\amazon\test\steps\CommonSteps.class
+com\amazon\test\steps\CartSteps.class
+com\amazon\test\steps\Hooks.class
+com\amazon\test\steps\MenuNavigationSteps.class
+com\amazon\test\steps\SearchSteps.class
