@@ -1,14 +1,14 @@
-# 🛒 Amazon Automation
+# Amazon Automation
 
 Testes automatizados para um desafio técnico de QA. O projeto valida funcionalidades essenciais da **página inicial da Amazon**, incluindo **autocomplete, menu de navegação e fluxo de compra de um produto**.
 
-## 📌 Funcionalidades Testadas
+## Funcionalidades Testadas
 
 - **Sugestões de Pesquisa (Autocomplete)** → Verifica se as sugestões aparecem corretamente enquanto o usuário digita.
 - **Menu de Navegação** → Valida a responsividade e usabilidade do menu principal.
 - **Adição ao Carrinho** → Testa o fluxo de compra, garantindo que o item correto é adicionado ao carrinho.
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Java 17**
 - **Selenium WebDriver**
@@ -18,7 +18,7 @@ Testes automatizados para um desafio técnico de QA. O projeto valida funcionali
 - **Extent Reports** (para relatórios de execução)
 - **ChromeDriver**
 
-## ▶️ Como Executar os Testes
+## Como Executar os Testes
 
 ### **Pré-requisitos**
 Certifique-se de ter instalado:
